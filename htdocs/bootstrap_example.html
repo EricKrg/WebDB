@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap Examples</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hello World!</h1>
+            Here are some example elements...
+
+            <h2>Grid layout</h2>
+            <div class="row">
+                <div class="col-md-12" style="background-color:#CCCCCC;">void</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="background-color:#666666;">bla</div>
+                <div class="col-md-3" style="background-color:#888888;">blubb</div>
+                <div class="col-md-3" style="background-color:#AAAAAA;">nil</div>            
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="background-color:#CCCCCC;">foo</div>
+                <div class="col-md-8" style="background-color:#999999;">bar</div>
+            </div>            
+            
+            <h2>Tables</h2>
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                    </tr>
+                </tbody>
+            </table>   
+            <h2>Buttons</h2>
+            <a href="#" class="btn btn-info" role="button" onclick="alert('Why did you do that?')">Don't Click</a>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-info" role="button">A</a>
+                <a href="#" class="btn btn-info" role="button">B</a>
+                <a href="#" class="btn btn-info" role="button">C</a>
+            </div>            
+            
+            <button type="button" class="btn btn-default">Default</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-danger">Danger</button>         
+
+            <h2>Menüs</h2>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#section1">Section 1</a></li>
+                    <li><a href="#section2">Section 2</a></li>
+                    <li><a href="#section3">Section 3</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section41">Section 4-1</a></li>
+                            <li><a href="#section42">Section 4-2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Icons</h2>
+            <p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>
+            <p>Envelope icon as a link:
+                <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+            </p>
+            <p>Search icon: <span class="glyphicon glyphicon-search"></span></p>
+            <p>Search icon on a button:
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </p>
+            <p>Search icon on a styled button:
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </p>
+            <p>Print icon: <span class="glyphicon glyphicon-print"></span></p>
+            <p>Print icon on a styled link button:
+                <a href="#" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-print"></span> Print
+                </a>
+            </p>             
+        </div>
+    </body>
+</html>
