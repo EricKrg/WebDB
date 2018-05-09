@@ -14,9 +14,9 @@
     <header class="w3-container w3-green w3-center" style="padding:20px 16px">
         <h1 class="w3-margin w3-jumbo"><font size="6">Meta explorer</h1></font>
 </header>
-    <form class="w3-container " method="post" action="" name="form">  
+    <form class="w3-container w3-center " method="post" action="" name="form">  
         <select class="w3-button w3-grey w3-medium w3-margin-top" name="metafile"><p>
-            <option class="w3-button w3-red w3-medium w3-margin-top" value="" selected="selected">Select meta data</option>
+            <option class="w3-button w3-red w3-medium w3-margin-top" value="select" selected="selected">Select meta data</option>
             <?php
             $dir = "UP_DATA/meta/";
             $folder = opendir($dir);
@@ -44,26 +44,46 @@
         
         $myfile = fopen("UP_DATA/meta/".$meta_select, "r") or die("Unable to open file!");
             // Output one line until end-of-file
-        ?> <p><div class="w3-container w3-yellow w3-left"> Current Meta data:</div> </p><br><br>
+        ?> <p><div class="w3-container w3-yellow w3-center"> Current Meta data:</div> </p>
         <?php
+        $old =array();
         while(!feof($myfile)) {
             $temp = fgets($myfile);
-            $old[] = $temp;
-            echo $temp."<br>";            
+            $old[] = $temp; 
+         
         }
 
-        ?>
-        <div class="w3-container"><b>Edit the Data of:<b>
-                    <form enctype="multipart/form-data" action="" method="post">
-                        <input class ="w3-container w3-opacity" size ="35" type="text" name="file_name" value= <?php echo $meta_select ?> readonly/><br>
-                        <p> Date/User: </p>
-      <p><input class="w3-container w3-left w3-opacity" type="text" name="Date" value= <?php echo substr($old[0],6) ?> />
-          <input class="w3-container w3-left w3-opacity" type="text" name="User" value= <?php echo substr($old[1],6) ?> /></p><br>
-      <p>Data set/Time series ID: </p>
-      <p><input class="w3-container w3-left w3-opacity" type="text" name="Dataset" value= <?php echo substr($old[2],9) ?> />
-         <input class="w3-container w3-left w3-opacity" type="text" name="Time" value=<?php echo substr($old[3],6) ?> /></p><br>
-      <p><input class="w3-button w3-red w3-medium w3-margin-top" name ="act" type="submit" value="change"></p><br>
-      </div></form>
+        ?> 
+        <div class="w3-container w3-center"><b>Edit the Data of:
+        <form enctype="multipart/form-data" action="" method="post">
+            <input class ="w3-container w3-opacity" size ="35" type="text" name="file_name" value= <?php echo $meta_select ?> readonly/><br>
+            <p><b>Dataset: </b></p>
+            <div class="w3-center ">
+                <p><input class="w3-container w3-red w3-opacity" type="text" name="DataT" placeholder="Dataset Title" value= <?php echo substr($old[0], 6) ?> />
+           <input class="w3-container  w3-opacity" type="text" name="Descr" placeholder="Description"  value= <?php echo substr($old[1], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="rstat" placeholder="Reliability Status" value= <?php echo substr($old[2], 6) ?> />
+           <input class="w3-container  w3-opacity" type="text" name="rdesc" placeholder="Reliability Desc." value= <?php echo substr($old[3], 6) ?>  /></p>
+        <p><input class="w3-container w3-red  w3-opacity" type="text" name="start" placeholder="Start" value= <?php echo substr($old[4], 6) ?>  />
+           <input class="w3-container w3-red w3-opacity" type="text" name="enddt" placeholder="End" value= <?php echo substr($old[5], 6) ?> /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="naval" placeholder="Value for Missing Data" value= <?php echo substr($old[6], 6) ?>  />
+           <input class="w3-container  w3-opacity" type="text" name="tstep" placeholder=" Time Step" value= <?php echo substr($old[7], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="respo" placeholder="Responsible Party" value= <?php echo substr($old[8], 6) ?>  />
+           <input class="w3-container  w3-opacity" type="text" name="metad" placeholder="Metadata Stamp" value= <?php echo substr($old[9], 6) ?>  /></p>
+        <p><b>Station: </b></p>  
+        <p><input class="w3-container w3-red w3-opacity" type="text" name="sname" placeholder="Name" value= <?php echo substr($old[10], 6) ?>  />
+           <input class="w3-container  w3-opacity" type="text" name="River" placeholder="River system" value= <?php echo substr($old[11], 6) ?>  /></p>
+        <p><input class="w3-container w3-red  w3-opacity" type="text" name="Latcr" placeholder="Latitude" value= <?php echo substr($old[12], 6) ?>  />
+           <input class="w3-container w3-red w3-opacity" type="text" name="Loncr" placeholder="Longitude"value= <?php echo substr($old[13], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="utmzn" placeholder="UTM Zone" value= <?php echo substr($old[14], 6) ?>  />
+           <input class="w3-container  w3-opacity" type="text" name="eleva" placeholder="Elevation" value= <?php echo substr($old[15], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="yearE" placeholder="Year of est." value= <?php echo substr($old[16], 6) ?>  />
+           <input class="w3-container  w3-opacity" type="text" name="yearC" placeholder="Year of Closing" value= <?php echo substr($old[17], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="rarea" placeholder="Represented Area (sqkm)"value= <?php echo substr($old[18], 6) ?>  />
+            <input class="w3-container  w3-opacity" type="text" name="statd" placeholder="Station Description" value= <?php echo substr($old[19], 6) ?>  /></p>
+        <p><input class="w3-container  w3-opacity" type="text" name="respp" placeholder="Responsible Party" value= <?php echo substr($old[20], 6) ?>  /></p>                 
+         <input class="w3-button w3-red w3-medium w3-margin-top" type="submit" name="act" value="CHANGE"></p><br>
+      </form></div></div>
+    <br>
         <?php }
     }
        if(!empty($_POST['act'])){ ?>
@@ -74,8 +94,9 @@
 
            $save =  $_POST['file_name'];
             $meta_file = fopen($save , "w");
-            $var = array('Date', 'User', 'Dataset','Time');
-            $i = 0;
+            $var = array('DataT','Descr','rstat','rdesc','start','enddt','naval',
+                        'tstep','respo','metad', 'sname','River', 'Latcr', 'Loncr','utmzn','eleva',
+                        'yearE','yearC','rarea','statd','respp');
             foreach ($var as $value){
                 $txt = $value.": ".$_POST[$value]."\n";
                 fwrite($meta_file, $txt);
