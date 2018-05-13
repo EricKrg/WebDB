@@ -1,5 +1,9 @@
 <?php
 session_start();
+// <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+// <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+// <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+//<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 ?>
 
 <!DOCTYPE html>
@@ -9,16 +13,16 @@ session_start();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="authors" content="Eric&Luise">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" type="text/css" href="css/style.css">
+
     </head>
 
     <body>
-        <header>
+        <header class="w3-container w3-teal">
             <nav>
-                <div class="main-wrapper">
+
+                <div class="w3-display-left">
                     <ul>
                         <li><a href="index.php">Home</a></li>
                     </ul>   
@@ -30,7 +34,8 @@ session_start();
                     // i fthe user is not logged in, show a Login button 
                     if (isset($_SESSION['u_id'])) {
                         echo '<form action = "useraccount.php" method = "POST">
-                    <button type = "submit" name = "submit">User Account</button>
+                    <button class="w3-button w3-light-grey" 
+                    type = "submit" name = "submit">User Account</button>
                     </form>';
                         echo '<form action = "/php_includes/db_logout.inc.php" method = "POST">
                     <button type = "submit" name = "submit">Logout</button>
@@ -47,7 +52,7 @@ session_start();
                     // button for managing user data
                     if (isset($_SESSION['u_id']) && $_SESSION['u_status'] == 'admin') {
                         echo '<form action = "adminaccount.php" method = "POST">
-                    <button type = "submit" name = "submit">ADMIN</button>
+                    <button class="w3-button w3-light-grey" type = "submit" name = "submit">ADMIN</button>
                     </form>';
                     }
                     ?>

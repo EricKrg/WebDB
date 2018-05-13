@@ -6,7 +6,7 @@ include_once 'header.php';
     <div class="main-wrapper">
         <h2>Home</h2>
         <?php
-        if (isset($_SESSION['u_log'])) {
+        if (isset($_SESSION['u_id'])) {
             echo "<p>Hi, " . $_SESSION['u_first'] . " " . $_SESSION['u_last'] . " . You are logged in!</p>";
         } else {
             echo "Please sign up or log in you account";
@@ -19,6 +19,3 @@ include_once 'header.php';
 
 <?php
 include_once 'footer.php';
-?>
-
-
