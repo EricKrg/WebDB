@@ -53,12 +53,6 @@ include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
         </form>
 
 
-
-        <form action="/php_includes/db_admin_delete.inc.php" method="POST">
-            <button type="submit" name="XXX">(Delete User)</button>
-        </form>
-
-        <!-- AB hier Test für Dropdown Menü -->
         <form action="/php_includes/db_admin_delete.inc.php" id="carform">
             <select name="users[]" form="carform">
             <?php
