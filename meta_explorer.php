@@ -1,20 +1,13 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-    .fa-anchor,.fa-coffee {font-size:200px} // css anlegen 
-    </style>
+<?php
+include_once 'header_new.php';
+?>
+
     <body>
     <header class="w3-container w3-green w3-center" style="padding:20px 16px">
         <h1 class="w3-margin w3-jumbo"><font size="6">Meta explorer</h1></font>
-</header>
-    <form class="w3-container w3-center " method="post" action="" name="form">  
+    </header>
+        <div id ="scroll">
+    <form class="w3-container w3-center" method="post" action="" name="form">  
         <select class="w3-button w3-grey w3-medium w3-margin-top" name="metafile"><p>
             <option class="w3-button w3-red w3-medium w3-margin-top" value="select" selected="selected">Select meta data</option>
             <?php
@@ -82,7 +75,7 @@
             <input class="w3-container  w3-opacity" type="text" name="statd" placeholder="Station Description" value= <?php echo substr($old[19], 6) ?>  /></p>
         <p><input class="w3-container  w3-opacity" type="text" name="respp" placeholder="Responsible Party" value= <?php echo substr($old[20], 6) ?>  /></p>                 
          <input class="w3-button w3-red w3-medium w3-margin-top" type="submit" name="act" value="CHANGE"></p><br>
-      </form></div></div>
+         </form></div></div> </div>
     <br>
         <?php }
     }
@@ -109,9 +102,8 @@
       
       
       </body>
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-        <div class="w3-xlarge w3-padding-32"></div>
-        <p>Authors: Luise Treumer, Eric Krueger</p>
-    </footer>
+    
+<?php
+include_once 'footer.php';
+?>
   </html>
