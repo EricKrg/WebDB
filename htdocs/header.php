@@ -31,7 +31,7 @@ session_start();
                     <?php
                     // if the user is logged in, create a User Account button for 
                     // managing user data and a log out button 
-                    // i fthe user is not logged in, show a Login button 
+                    // if the user is not logged in, show a Login button 
                     if (isset($_SESSION['u_id'])) {
                         echo '<form action = "useraccount.php" method = "POST">
                     <button class="w3-button w3-light-grey" 

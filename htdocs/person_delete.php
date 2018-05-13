@@ -24,7 +24,7 @@ if (!$stmt) {
 }
 
 // Statement ausführen
-mysqli_stmt_execute($stmt);
+c
 
 // Statement schließen
 mysqli_stmt_close($stmt);

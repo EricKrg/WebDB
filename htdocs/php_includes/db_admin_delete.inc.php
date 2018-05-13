@@ -1,27 +1,28 @@
 <?php
- 
+
 include_once 'db_connect.inc.php';
-if (isset($_POST['delete'])) {
- 
-    $userid = $_POST['carform'];
- // SQL query
-  $sql = "SELECT * FROM person WHERE id = $userid" ;
-  // Query ausführen
-  $result = mysqli_query($conn, $sql);
-  if (!$result) {
-  exit("Abfrage fehlgeschlagen: " . mysqli_error($conn));
-  }
-  // Anzahl der Ergebnis-Tupel abfragen und ablaufen
-  if (mysqli_num_rows($result) > 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
-  echo "<p>User ID " .  $row["id"] . ": ". "<br>"
-         . "Name: " . $row["firstname"] 
-         . " " . $row["lastname"] . "<br>" 
-         . "E-mail: " . $row["email"] . "<br>"
-         . "Login: " . $row["login"] . "<br></p>";
-   
-  }
-  } else {
-  echo "0 Ergebnisse";
-  }
+if (isset($_REQUEST['delete'])) {
+
+    $user = $_REQUEST['users'];
+    $userid_del = implode(" ", $user);
+    //echo $userid_del[0];
+// SQL query
+    $sql_del = "DELETE FROM person WHERE id IN ($userid_del[0])";
+    //echo $sql_del;   
+// Query ausführen
+    $stmt = mysqli_prepare($conn, $sql_del);
+    if (!$stmt) {
+        exit("Abfrage fehlgeschlagen: " . mysqli_error($conn));
+    }
+
+  // Statement ausführen
+mysqli_stmt_execute($stmt);
+
+// Statement schließen
+mysqli_stmt_close($stmt);
+
+// Datenbankverbindung beenden
+mysqli_close($link);
+
+header("Location: ../adminaccount.php?delete=success");
 }

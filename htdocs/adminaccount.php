@@ -60,7 +60,7 @@ include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
 
         <!-- AB hier Test für Dropdown Menü -->
         <form action="/php_includes/db_admin_delete.inc.php" id="carform">
-            <select name="carlist" form="carform">
+            <select name="users[]" form="carform">
             <?php
             include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
             // do sql select query
@@ -77,7 +77,7 @@ include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
 
                     echo '<div> 
              <option "value=' . $row['id'] . '>'
-                    . " " . $row['firstname'] . " " . $row['lastname'] 
+                . " " . $row['id'] . " " . $row['firstname'] . " " . $row['lastname'] 
                             . '</option>'
                             .'</div>';
                 }
