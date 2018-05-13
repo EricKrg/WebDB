@@ -15,14 +15,17 @@ if (isset($_REQUEST['delete'])) {
         exit("Abfrage fehlgeschlagen: " . mysqli_error($conn));
     }
 
-  // Statement ausführen
-mysqli_stmt_execute($stmt);
+    // Statement ausführen
+    mysqli_stmt_execute($stmt);
 
 // Statement schließen
-mysqli_stmt_close($stmt);
+    mysqli_stmt_close($stmt);
 
 // Datenbankverbindung beenden
-mysqli_close($link);
+    mysqli_close($conn);
 
-header("Location: ../adminaccount.php?delete=success");
-}
+    header("Location: ../adminaccount.php?delete=success");
+    exit();
+} 
+
+
