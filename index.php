@@ -1,11 +1,31 @@
+
+<html>
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
+include_once 'header_new.php';
 ?>
-Something is wrong with the XAMPP installation :-(
+
+<section class="w3-container">
+    <div class="w3-container">
+        <h2>Home</h2>
+        <?php
+        if (isset($_SESSION['u_log'])) {
+            echo "<p>Hi, " . $_SESSION['u_first'] . " " . $_SESSION['u_last'] . " . You are logged in!</p>";
+            ?>  <a href="fileupload.php" class="w3-bar-item w3-button w3-padding-large w3-black">Upload Data</a>
+            <a href="meta_explorer.php" class="w3-bar-item w3-button w3-padding-large w3-black">edit Meta</a>
+            <a href="delete.php" class="w3-bar-item w3-button w3-padding-large w3-black">Delete Data</a>
+            <a href="visual.php" class="w3-bar-item w3-button w3-padding-large w3-black">Visualize Data</a>
+                    <?php
+        } else {
+            echo "Please sign up or log in you account";
+        }
+        ?>
+        
+
+    </div>
+</section>
+
+<?php
+include_once 'footer.php';
+?>
+</html>
+
