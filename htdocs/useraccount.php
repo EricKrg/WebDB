@@ -63,7 +63,7 @@ include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
       }
       ?>
 
-      <p></p>
+
 
      */
     ?>
