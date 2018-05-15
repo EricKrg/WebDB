@@ -116,16 +116,30 @@ include_once '../header_new.php';
                         $line = fgets($myfile);
                         $lineNo++;
                         if ($lineNo > 7){
+                            $pieces = explode("\t", $line);
+                            if (count($pieces) == 2){
                             //echo str_replace("-","",substr($line,0,10))."<br>";
                             //echo substr($line,16)."<br>";
-                            $date = str_replace("-","",substr($line,0,10));
-                            $value = substr($line,16);
+                            $date = str_replace("-","",$pieces[0]);
+                            $value = $pieces[1];
+                            
+                            preg_match('([0-9]+)',$value);
+                            if(!preg_match('([0-9]+)',$value)){
+                                $value = NULL;
+                                $date = NULL;
+                            }
+                            if($date == 0){
+                                $value = NULL;
+                                $date = NULL;
+                            }
+                            
                             $sql_update = "INSERT INTO climate_data (time_id,"
                                     . " meta_id,datestamp,timestamp,climate_value,data_type)"
                                     . "VALUES ('$time_id', '$meta_id','$date','$time','$value','$data_type')"; 
                         
                         $result_update = mysqli_query($conn, $sql_update);
                         // delete datastamp == 0
+                            }
                         }   
                     }
                     mysqli_close($conn);
