@@ -28,16 +28,16 @@ include_once 'D:/geo406/htdocs/php_includes/db_connect.inc.php';
         <p> If you want to change your user contact data, fill in the form and click 'Update'. <br>
             Then, please log in again. </p>
         <form class="signup-form" action="/php_includes/db_updatedata.inc.php" method="POST">
-            <input type="text" name="first_upd" placeholder="Firstname"> 
-            <input type="text" name="last_upd" placeholder="Lastname">
+            <input type="text" name="first_upd" value='<?php echo $_SESSION['u_first']; ?>'> 
+            <input type="text" name="last_upd" value='<?php echo $_SESSION['u_last']; ?>'>
             <!-- <input type="text" name="ulog_upd" placeholder="Username"> -->
-            <input type="text" name="street_upd" placeholder="Street">
-            <input type="text" name="hnr_upd" placeholder="House No.">
-            <input type="text" name="postcode_upd" placeholder="Postcode">
-            <input type="text" name="town_upd" placeholder="Town">
-            <input type="text" name="country_upd" placeholder="Country">
-            <input type="text" name="email_upd" placeholder="E-mail">
-            <input type="text" name="phone_upd" placeholder="Phone">
+            <input type="text" name="street_upd" value='<?php echo $_SESSION['u_street']; ?>'>
+            <input type="text" name="hnr_upd" value='<?php echo $_SESSION['u_hnr']; ?>'>
+            <input type="text" name="postcode_upd" value='<?php echo $_SESSION['u_postcode']; ?>'>
+            <input type="text" name="town_upd" value='<?php echo $_SESSION['u_town']; ?>'>
+            <input type="text" name="country_upd" value='<?php echo $_SESSION['u_country']; ?>'>
+            <input type="text" name="email_upd" value='<?php echo $_SESSION['u_email']; ?>'>
+            <input type="text" name="phone_upd" value='<?php echo $_SESSION['u_phone']; ?>'>
             <input type="text" name="pwd_upd" placeholder="Password"> 
             <button type="submit" name="submit_upd">Update</button>
         </form>
