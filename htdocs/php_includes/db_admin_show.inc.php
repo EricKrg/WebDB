@@ -1,13 +1,14 @@
 <?php
- 
+
 include_once 'db_connect.inc.php';
-if (isset($_POST['show'])) {
- 
+if (!isset($_POST['cbox'])) {
+     echo "No results.";   
+    } else {
+    
     // separate retrieved arrays
     $userid = implode(",", $_POST['cbox']);
     //print for testing
     //print_r($userid);
-     
     // do query based on checkboxes
     $sql = "SELECT * FROM person WHERE id IN ($userid)  "; //$userid
     // Query ausführen
@@ -23,17 +24,18 @@ if (isset($_POST['show'])) {
             . " " . $row["lastname"] . "<br>"
             . "Status: " . $row["status"] . "<br>"
             . "Address: " . $row["street"] . " " . $row["hnr"] . ", "
-            . $row["postcode"]   . " " 
-            . $row["town"] . "<br>"        
+            . $row["postcode"] . " "
+            . $row["town"] . "<br>"
             . "Country: " . $row["country"] . "<br>"
             . "E-mail: " . $row["email"] . "<br>"
             . "Phone: " . $row["phone"] . "<br>"
             . "Login: " . $row["login"] . "<br></p>";
         }
-    } else {
-        echo "keine Ergebnisse";
     }
-}
+    mysqli_close($conn);
+    exit();}
+
+
   
 /*
  if (isset($_POST['show'])) {
