@@ -48,7 +48,7 @@ include_once 'header_new.php';
 
         ?> 
         <div class="w3-container w3-center"><b>Edit the Data of:
-        <form enctype="multipart/form-data" action="" method="post">
+                <form enctype="multipart/form-data" action="/php_includes/meta_explorer_update.php" method="post">
             <input class ="w3-container w3-opacity" size ="35" type="text" name="file_name" value= <?php echo $meta_select ?> readonly/><br>
             <p><b>Dataset: </b></p>
             <div class="w3-center ">
@@ -78,28 +78,7 @@ include_once 'header_new.php';
          </form></div></div> </div>
     <br>
         <?php }
-    }
-       if(!empty($_POST['act'])){ ?>
-           
-           <div class="w3-container w3-red w3-left">
-                    <?php print "changed Meta data of: ".$_POST['file_name'] ;?></div>
-    <?php
-
-           $save =  $_POST['file_name'];
-            $meta_file = fopen($save , "w");
-            $var = array('DataT','Descr','rstat','rdesc','start','enddt','naval',
-                        'tstep','respo','metad', 'sname','River', 'Latcr', 'Loncr','utmzn','eleva',
-                        'yearE','yearC','rarea','statd','respp');
-            foreach ($var as $value){
-                $txt = $value.": ".$_POST[$value]."\n";
-                fwrite($meta_file, $txt);
-                }
-
-            fclose($meta_file);  
-            rename($save, "UP_DATA/meta/".$save);         
-    } 
-     ?>
-      
+    } ?>
       
       </body>
     
