@@ -29,9 +29,13 @@ if (isset($_POST['submit_upd'])) {
         exit();
     } else {
         //check if characters are valid
-        if (!preg_match("/^[a-zA-Z]*$/", $first_upd) || !preg_match("/^[a-zA-Z]*$/", $last_upd) || !preg_match("/^[a-zA-Z]*$/", $street_upd) || !preg_match("/^[0-9]+$/", $hnr_upd) //
+        if (!preg_match("/^[a-zA-Z]*$/", $first_upd) || !preg_match("/^[a-zA-Z]*$/", $last_upd) 
+                || !preg_match("/^[a-zA-Z]*$/", $street_upd) 
+                || !preg_match("/^[0-9]+$/", $hnr_upd) //
                 || !preg_match("/^[0-9]+$/", $postcode_upd) //
-                || !preg_match("/^[a-zA-Z]*$/", $town_upd) || !preg_match("/^[a-zA-Z]*$/", $country_upd) || !preg_match("/^[0-9]+$/", $phone_upd)) {
+                || !preg_match("/^[a-zA-Z]*$/", $town_upd) 
+                || !preg_match("/^[a-zA-Z]*$/", $country_upd) 
+                || !preg_match("/^[0-9]+$/", $phone_upd)) {
             header("Location: ../useraccount.php?update=invalid");
             exit();
         } else {

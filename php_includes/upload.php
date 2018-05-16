@@ -13,7 +13,7 @@ include_once '../header_new.php';
                     <?php echo '<form action = "../fileupload.php" method = "POST">' ?>
                     <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
                     <?php
-                
+    //Spezial fälle             
             } else { 
                 if ($_POST['DataT'] == 'Dataset Title' | $_POST['DataT'] == '' ){ ?>
                     <div class="w3-container w3-red">
@@ -118,8 +118,7 @@ include_once '../header_new.php';
                         if ($lineNo > 7){
                             $pieces = explode("\t", $line);
                             if (count($pieces) == 2){
-                            //echo str_replace("-","",substr($line,0,10))."<br>";
-                            //echo substr($line,16)."<br>";
+                            
                             $date = str_replace("-","",$pieces[0]);
                             $value = $pieces[1];
                             
