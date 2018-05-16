@@ -1,11 +1,12 @@
 
 <?php
 include_once 'header_new.php';
+if (isset($_SESSION['u_id'])) {
 ?>
 <body>
 
     <header class="w3-container w3-green w3-center w3-medium" style="padding:20px 16px">
-        <h1 class="w3-margin w3-jumbo"><font size="6">Data Visualization</h1></font>
+        <h1 class="w3-margin w3-jumbo"><font size="6">Data Analysis</h1></font>
     </header>
     <form class="w3-container w3-center" method="post" action="/php_includes/visual.inc.php" name="form">  
         <select class="w3-button w3-grey w3-medium w3-margin-top" name="visual_file"><p>
@@ -29,6 +30,7 @@ include_once 'header_new.php';
 </form>
 
 <?php
+}
 include_once 'footer.php';
 ?>
 

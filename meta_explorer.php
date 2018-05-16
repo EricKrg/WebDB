@@ -1,5 +1,6 @@
 <?php
 include_once 'header_new.php';
+if (isset($_SESSION['u_id'])) {
 ?>
 
     <body>
@@ -83,6 +84,7 @@ include_once 'header_new.php';
       </body>
     
 <?php
+}
 include_once 'footer.php';
 ?>
   </html>

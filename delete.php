@@ -1,5 +1,6 @@
 <?php
 include_once 'header_new.php';
+if (isset($_SESSION['u_id'])) {
 ?>
     <body>
     <header class="w3-container w3-green w3-center" style="padding:20px 16px">
@@ -41,6 +42,7 @@ include_once 'header_new.php';
       </body>
     <!-- Footer -->
 <?php
+}
 include_once 'footer.php';
 ?>
 
