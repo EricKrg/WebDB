@@ -97,15 +97,15 @@ include_once '../header_new.php';
                     while($line = fgets($myfile)){
                         $lineNo++;
                         if ($lineNo == 5){
-                            echo substr($line,16)."<br>";
+                            //echo substr($line,16)."<br>";
                             $time_id = substr($line,16);
                         }
                         if ($lineNo == 6){
-                            echo substr($line, 13)."<br>";   
+                            //echo substr($line, 13)."<br>";   
                             $meta_id = substr($line,13);
                         }
                         if ($lineNo == $end){
-                            echo substr($line,10)."<br>";
+                            //echo substr($line,10)."<br>";
                             $data_type = substr($line,10);
                             $time = 0;
                             break;
@@ -144,6 +144,9 @@ include_once '../header_new.php';
                     mysqli_close($conn);
     
                     echo '<form action = "../fileupload.php" method = "POST">' ?>
+                    <div class ="w3-container w3-light-grey">Time series ID: <?php echo $time_id ?></div>
+                    <div class ="w3-container w3-light-grey">Meta Data ID: <?php echo $meta_id ?></div>
+                    <div class ="w3-container w3-light-grey">Data type: <?php echo $data_type ?></div>
                     <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
                     <?php
                    
