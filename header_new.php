@@ -15,7 +15,7 @@ session_start();
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px} 
-    #scroll {overflow-y: scroll; height: 600px;}
+    #scroll {overflow-y: auto; height: 600px;}
     #scroll_small {overflow-y: scroll; height: 400px;}
     #table {
     border-collapse: collapse;
@@ -63,7 +63,7 @@ session_start();
                     // check, if the user has admin status. If so, create admin 
                     // button for managing user data
                     if (isset($_SESSION['u_id']) && $_SESSION['u_status'] == 'admin') {
-                        echo '<form action = "adminaccount.php" method = "POST">' ?>
+                        echo '<form action = "../adminaccount.php" method = "POST">' ?>
                     <button class ="w3-button w3-grey w3-right" type = "submit" name = "submit">ADMIN</button>
                 <!--    
                 
