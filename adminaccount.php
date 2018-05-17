@@ -1,6 +1,6 @@
 <?php
 include_once 'header_new.php';
-require_once  'htdocs/php_includes/db_connect.inc.php';
+include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
 ?>
 
 <section class="w3-container">
@@ -9,7 +9,7 @@ require_once  'htdocs/php_includes/db_connect.inc.php';
         <p>
         <form action="/php_includes/db_admin_show.inc.php" method="POST">
             <?php
-            include_once 'htdocs/php_includes/db_connect.inc.php';
+            //include_once 'htdocs/php_includes/db_connect.inc.php';
             // do sql select query
             $sql = "SELECT * FROM person";
             // process the query
