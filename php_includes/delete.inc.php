@@ -9,6 +9,7 @@ if(!empty($_POST['delete'])){ ?>
          <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
                     
     <?php
+    // deletes the all txt files - meta & data, as well as the db entry of this time series 
         $file_delete =  $_POST['file_name'];
         preg_match('([0-9]+)', $file_delete, $match);
         //db delete

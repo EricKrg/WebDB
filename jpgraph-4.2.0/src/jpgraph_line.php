@@ -676,7 +676,5 @@ class AccLinePlot extends Plot {
         }
     }
 } // Class
-
-
 /* EOF */
 ?>

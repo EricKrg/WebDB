@@ -1,7 +1,7 @@
-
 <?php
+//form for user file upload --> file selection and meta data input
 include_once 'header_new.php';
-if (isset($_SESSION['u_id'])) {
+if (isset($_SESSION['u_id'])) {  //check if user is logged in 
 ?>
 <body>
 
@@ -10,7 +10,7 @@ if (isset($_SESSION['u_id'])) {
     </header>
    
         <div id ="scroll" class="w3-container w3-center"><b>Fill in the Meta-data and upload your data file: </b>
-            <form enctype="multipart/form-data" action="/php_includes/upload.php" method="post">  <!-- action = "db_update.climate.data.inc.php" !-->
+            <form enctype="multipart/form-data" action="/php_includes/upload.php" method="post">  <!-- to upload include function !-->
             <p><b>Dataset: </b></p>
             <div class="w3-center ">
         <p><input class="w3-container w3-red w3-opacity" type="text" name="DataT" placeholder="Dataset Title" />
@@ -39,9 +39,7 @@ if (isset($_SESSION['u_id'])) {
          <input class="w3-button w3-black w3-medium w3-margin-top"  name="userfile" type="file">
          <input class="w3-button w3-black w3-medium w3-margin-top" type="submit" name="submit_d" value="Send File"></p><br>
       </form></div>
-    
 
-        
         </div> 
     </body>
     <!-- Footer -->
@@ -50,5 +48,4 @@ if (isset($_SESSION['u_id'])) {
 }
 include_once 'footer.php';
 ?>
-
 </html>

@@ -1,4 +1,0 @@
-Date: 23.06.1995
-User: Eric
-Dataset: durchfluss
-Time: 521

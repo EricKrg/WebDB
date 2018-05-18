@@ -1,5 +1,6 @@
 <?php
 include_once '../header_new.php';
+// Meta txt edit and DB entry - similar to upload
 ?>
 
        <?php if(!empty($_POST['act'])){ ?>
@@ -10,7 +11,7 @@ include_once '../header_new.php';
                     <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
                     
     <?php
-
+            // Meta file change
             $save =  $_POST['file_name'];
             $fname_m = substr($save, 5);
             $meta_file = fopen($save , "w");
@@ -27,6 +28,8 @@ include_once '../header_new.php';
                     
             $row_val = implode("', '", $meta);
             $row_val = "$fname_m', '".$row_val;
+            
+            // DB entry 
             include 'db_connect.inc.php';
             mysqli_query($conn,"DELETE FROM meta_data WHERE `Data_name` = '$fname_m'");
             $meta_update = "INSERT INTO meta_data ($col_var) VALUES ('$row_val')";

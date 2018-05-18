@@ -1,19 +1,21 @@
 <?php
+//script to display the data analysis results 
 include_once '../header_new.php';
 if (isset($_SESSION['u_id'])) {
-include (dirname(__DIR__).'/php_includes/visual.inc.php');
+include (dirname(__DIR__).'/php_includes/visual.inc.php'); //includes the script where the calculations happens
 ?>
 <body>
     <div class="w3-green">
 <h5><b> Data analysis of Time series:</b> <?php echo $data_id[0]. "<b> Data type: </b>". $data_type ?> </h5>    
     </div>
  <div id="scroll" class="w3-panel">
-     
+     <!-- plot img from jpgraph !-->
     <div class="w3-row-padding w3-padding-32" style="margin:5 -16px">
       <div class="w3-twothird">
           <img src="/php_includes/mygraph2.png" style="width:100%" alt='my graph' />
     </div>
 
+        <!-- stats table !-->
 <div class="w3-third">
 <table id = "table" class="w3-table w3-striped w3-white w3-padding-32" >
   <tr>

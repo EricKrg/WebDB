@@ -1,5 +1,5 @@
-
 <?php
+// download form
 include_once 'header_new.php';
 if (isset($_SESSION['u_id'])) {
 ?>
@@ -8,10 +8,11 @@ if (isset($_SESSION['u_id'])) {
     <header class="w3-container w3-green w3-center w3-medium" style="padding:20px 16px">
         <h1 class="w3-margin w3-jumbo"><font size="6">Data download</h1></font>
     </header>
-    <form class="w3-container w3-center" method="post" action="/php_includes/donwload.inc.php" name="form">  
+    <form class="w3-container w3-center" method="post" action="/php_includes/donwload.inc.php" name="form">  <!-- to the download function !-->
         <select class="w3-button w3-grey w3-medium w3-margin-top" name="file_name"><p>
             <option class="w3-button w3-red w3-medium w3-margin-top" value="select" selected="selected">Select data</option>
             <?php
+            //select the time series to download - similar selction to delete and meta explorer
             $dir = "UP_DATA/";
             $folder = opendir($dir);
 

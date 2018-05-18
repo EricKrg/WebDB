@@ -5622,8 +5622,6 @@ class ColorFactory {
             ColorFactory::$iIdx = 0;
         return ColorFactory::$iColorList[ColorFactory::$iIdx++];
     }
-
 }
-
 // <EOF>
 ?>

@@ -1,11 +1,13 @@
 <?php
-//include_once '../header_new.php';
+//script for time series analysis (just descr. stats) and plotting 
 include 'db_connect.inc.php';
+//include all jpgraph dependencies
 include_once '../jpgraph-4.2.0/src/jpgraph.php';
 include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
-
-//if(!empty($_POST['visual_b'])){ 
-    preg_match('([0-9]+)', $_POST['visual_file'], $match);
+include_once '../jpgraph-4.2.0/src/jpgraph_plotline.php';
+include_once '../jpgraph-4.2.0/src/jpgraph_legend.inc.php';
+    //DB queries to extract values from db -------------------------------------
+    preg_match('([0-9]+)', $_POST['visual_file'], $match); //filter the time series id for query
     $data_id = $match;
     //climate data
     $result = mysqli_query($conn, "SELECT climate_value FROM `climate_data` WHERE `time_id` = '$data_id[0]'");
@@ -26,7 +28,7 @@ include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
     $type_d = mysqli_fetch_assoc($type);
     $data_type =  $type_d['data_type']; 
 
-//stat parameter
+//stat functions----------------------------------------------------------------
     function variance($array,$mean){
         foreach($array as $item){
             $tmp[] = pow(($item - $mean),2);
@@ -58,7 +60,7 @@ include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
          
         return (float)sqrt($variance/$num_of_elements);
     }
-     
+    // stat values--------------------------------------------------------------
     $a = array_filter($ydata);
     
     $mean = array_sum($a)/count($a);
@@ -74,15 +76,27 @@ include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
     $x75 = quan($a, $x7);
     $sd = Stand_Deviation($a);
    
-//graph plotting
+//graph plotting----------------------------------------------------------------
     $graph = new Graph(1024, 720, "auto");
     $graph->SetScale("intint");
 
 // Linie generieren
     $lineplot = new LinePlot($ydata);
-
+    $mean_line = new PlotLine(HORIZONTAL,$mean,"orange",2);
+    $median_line = new PlotLine(HORIZONTAL,$x50,"red",2);
 // Linie zur Grafik hinzufügen
     $graph->Add($lineplot);
+    $graph->AddLine($mean_line); 
+    $graph->AddLine($median_line); 
+
+// ADD legend
+    $mean_line->SetLegend("Mean");
+    $median_line->SetLegend("Median");
+    $graph->legend->SetLayout(LEGEND_HOR);
+    $graph->legend->Pos(0.4,0.99,"center","bottom");
+    $graph->legend->SetFont(FF_ARIAL,FS_NORMAL,14);
+    $graph->legend->SetLineWeight(4);
+    
 
 // Grafik Formatieren
     //$graph->img->SetMargin(40, 20, 20, 40);
@@ -94,8 +108,7 @@ include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
     $graph->xaxis->SetTitleMargin(65);
     $graph->xaxis->SetTickLabels($xdata);
     $graph->xaxis->SetLabelAngle(90);
-    $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,14);
-    
+    $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,14);  
     
     $lineplot->SetColor("blue");
     $lineplot->SetWeight(2);
@@ -107,7 +120,4 @@ include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
 // Grafik anzeigen
     @unlink("mygraph2.png");
    $graph->Stroke("mygraph2.png");
-    
-   
-//} 
 ?>

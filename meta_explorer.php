@@ -1,4 +1,5 @@
 <?php
+//script for expolring and editing existing meta data
 include_once 'header_new.php';
 if (isset($_SESSION['u_id'])) {
 ?>
@@ -11,7 +12,7 @@ if (isset($_SESSION['u_id'])) {
     <form class="w3-container w3-center" method="post" action="" name="form">  
         <select class="w3-button w3-grey w3-medium w3-margin-top" name="metafile"><p>
             <option class="w3-button w3-red w3-medium w3-margin-top" value="select" selected="selected">Select meta data</option>
-            <?php
+            <?php //selection of time sires meta data
             $dir = "UP_DATA/meta/";
             $folder = opendir($dir);
 
@@ -29,6 +30,7 @@ if (isset($_SESSION['u_id'])) {
         <input class="w3-button w3-black w3-medium w3-margin-top" name="submit" type="submit"></p>
 </form>
   <?php    
+    // reading meta data information and saving it in a array
     if (empty($_POST['metafile'])){
         echo "" ;
     } else {
@@ -48,6 +50,8 @@ if (isset($_SESSION['u_id'])) {
         }
 
         ?> 
+        <!-- Displaying existing meta data in in a form, makes looking up current meta data and editing possible
+             if form is submitted meta txt and db entry will be changed !-->
         <div class="w3-container w3-center"><b>Edit the Data of:
                 <form enctype="multipart/form-data" action="/php_includes/meta_explorer_update.php" method="post">
             <input class ="w3-container w3-opacity" size ="35" type="text" name="file_name" value= <?php echo $meta_select ?> readonly/><br>
