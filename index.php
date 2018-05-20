@@ -1,5 +1,3 @@
-
-<html>
 <?php
 include_once 'header_new.php';
 ?>
@@ -29,5 +27,5 @@ include_once 'header_new.php';
 <?php
 include_once 'footer.php';
 ?>
-</html>
+
 
