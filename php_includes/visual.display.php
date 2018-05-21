@@ -3,7 +3,8 @@
 include_once '../header_new.php';
 if (isset($_SESSION['u_id'])) {
 include (dirname(__DIR__).'/php_includes/visual.inc.php'); //includes the script where the calculations happens
-?>
+
+if ($data) { ?>
 <body>
     <div class="w3-green">
 <h5><b> Data analysis of Time series:</b> <?php echo $data_id[0]. "<b> Data type: </b>". $data_type ?> </h5>    
@@ -66,6 +67,14 @@ include (dirname(__DIR__).'/php_includes/visual.inc.php'); //includes the script
 <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
 </body>        
 <?php
+} else {
+ ?>
+            <div class="w3-container w3-red w3-left">No File selected </div>
+                        <?php echo '<form action = "../visual.php" method = "POST">' ?>
+                    <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button>
+    <?php
+}
+
 }
 include_once '../footer.php';
 ?>
