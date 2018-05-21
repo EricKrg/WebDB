@@ -1,4 +1,5 @@
 <?php
+// import scripts and their variables 
 include_once 'header_new.php';
 include_once 'php_includes/db_connect.inc.php';
 ?>
@@ -8,6 +9,7 @@ include_once 'php_includes/db_connect.inc.php';
         <h2>Manage User Account</h2>
 
         <?php
+        // use session data to welcome the user and present its login data
         if (isset($_SESSION['u_id'])) {
             echo "<p>Hi, " . $_SESSION['u_first'] . " " . " . You are logged in!</p>"
             . "Here you can see your user data: <br>";
@@ -25,12 +27,12 @@ include_once 'php_includes/db_connect.inc.php';
            // . "Password: " . $_SESSION['u_pwd'] . "<br>"; 
         }
         ?>
+        <!-- Create form for updating user data and a button to submit the changes -->
         <p> If you want to change your user contact data, fill in the form and click 'Update'. <br>
             Then, please log in again. </p>
         <form class="signup-form" action="/php_includes/db_updatedata.inc.php" method="POST">
             <input type="text" name="first_upd" placeholder="Firstname"> 
             <input type="text" name="last_upd" placeholder="Lastname">
-            <!-- <input type="text" name="ulog_upd" placeholder="Username"> -->
             <input type="text" name="street_upd" placeholder="Street">
             <input type="text" name="hnr_upd" placeholder="House No.">
             <input type="text" name="postcode_upd" placeholder="Postcode">
@@ -43,35 +45,9 @@ include_once 'php_includes/db_connect.inc.php';
         </form>
     </div>
 
-    <?php
-    /*
-      $data = "fargo";
-
-      $sql = "SELECT * FROM person WHERE login=?;";
-      $stmt = mysqli_stmt_init($conn);
-      if (!mysqli_stmt_prepare($stmt, $sql)) {
-      echo "SQL statement failed";
-      } else {
-      //bind parameters to the placeholder
-      mysqli_stmt_bind_param($stmt, 's', $data);
-      // run parameters inside database
-      mysqli_stmt_execute($stmt);
-      $result = mysqli_stmt_get_result($stmt);
-      while ($row = mysqli_fetch_assoc($result)) {
-      echo $row['login'] . "<br>";
-      }
-      }
-      ?>
-
-      <p></p>
-
-     */
-    ?>
-
-
 </section>
 
 <?php
 //include_once 'footer.php';
-?>
+
 

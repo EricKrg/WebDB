@@ -4,6 +4,8 @@
     
     <section class="w3-container">
         <div class="w3-panel">
+            <!-- create sign up form to register new user and a button to 
+            pass data via POST method -->
             <h2>Sign up</h2>
             <form class="signup-form" action="/php_includes/db_signup.inc.php" method="POST">
             <input type="text" name="first" placeholder="Firstname" > 
