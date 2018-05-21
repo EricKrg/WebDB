@@ -1,13 +1,3 @@
--- UPDATE METADATA!
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Erstellungszeit: 17. Feb 2016 um 22:07
--- Server-Version: 10.1.9-MariaDB
--- PHP-Version: 5.6.15
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -24,7 +14,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table 'person'
+-- Table structure for table all user data 'person'
 --
 CREATE TABLE `person` (
   `id` int(4) NOT NULL,
@@ -42,7 +32,7 @@ CREATE TABLE `person` (
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+-- Table structure for climate data
 CREATE TABLE `climate_data` (
   `time_id` int(4) NOT NULL,
   `meta_id` int(4) NOT NULL,
@@ -53,7 +43,7 @@ CREATE TABLE `climate_data` (
   UNIQUE (`meta_id`, `datestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+-- Table structure for meta data
 CREATE TABLE `meta_data` (
   `Data_name` text(40) NOT NULL,
   `DataT` text(40) NOT NULL,
@@ -82,7 +72,7 @@ CREATE TABLE `meta_data` (
 
 
 --
--- data for table `person`
+-- input data for table `person`
 --
 -- password must be hashed. password $2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq means 'secret'
 INSERT INTO `person` (`id`, `status`, `firstname`, `lastname`,  `login`, `street`, `hnr`, `postcode`, `town`, `country`, `email`, `phone`, `password`) VALUES
@@ -108,10 +98,6 @@ ALTER TABLE `person`
   ADD KEY `country` (`country`),
   ADD KEY `email` (`email`),
   ADD KEY `phone` (`phone`);
-
---
--- AUTO_INCREMENT for exported tbales
---
 
 --
 -- AUTO_INCREMENT for table `person`
