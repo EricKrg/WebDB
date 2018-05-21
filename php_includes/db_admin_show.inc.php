@@ -35,7 +35,7 @@ if (!isset($_POST['cbox'])) {
             . "E-mail: " . $row["email"] . "<br>"
             . "Phone: " . $row["phone"] . "<br>"
             . "Login: " . $row["login"] . "<br></p>";
-            //back
+            //back button 
             echo '<form action = "../adminaccount.php" method = "POST">' ?> 
     <button class ="w3-button w3-grey " type = "submit" name = "submit">Back</button></form>
     <?php

@@ -87,7 +87,8 @@ CREATE TABLE `meta_data` (
 -- password must be hashed. password $2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq means 'secret'
 INSERT INTO `person` (`id`, `status`, `firstname`, `lastname`,  `login`, `street`, `hnr`, `postcode`, `town`, `country`, `email`, `phone`, `password`) VALUES
 (1, 'admin', 'Luise', 'Treumer', 'ltreum', 'Bibliotheksweg', '5', '07743', 'Jena', 'Germany', 'luise.treumer@uni-jena.de', '0461456', '$2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq'),
-(2, 'user', 'Anna', 'Blum', 'annab', 'Grietgasse', '6', '07743', 'Jena', 'Germany', 'anna.blum@uni-jena.de', '01772828', '$2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq');
+(2, 'user', 'Eric', 'Krueger', 'ekrg', 'Johannistor', '7', '07743', 'Jena', 'Germany', 'eric.krueger@uni-jena.de', '06239102', '$2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq'),
+(3, 'user', 'Anna', 'Blum', 'annab', 'Grietgasse', '6', '07743', 'Jena', 'Germany', 'anna.blum@uni-jena.de', '01772828', '$2y$10$5XaVSHBJWZFigRRUReuCAerKJW/XFHNjcd08ykua7svcUVU8S.ndq');
 --
 -- indices of exported tables
 --
