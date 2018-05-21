@@ -1,5 +1,4 @@
 <?php
-// import scripts and their variables 
 include_once 'header_new.php';
 include_once 'php_includes/db_connect.inc.php';
 ?>
@@ -24,7 +23,6 @@ include_once 'php_includes/db_connect.inc.php';
             . "Country: " . $_SESSION['u_country'] . "<br>"
             . "E-mail: " . $_SESSION['u_email'] . "<br>"
             . "Phone: " . $_SESSION['u_phone'] . "<br>";
-           // . "Password: " . $_SESSION['u_pwd'] . "<br>"; 
         }
         ?>
         <!-- Create form for updating user data and a button to submit the changes -->
