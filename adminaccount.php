@@ -21,24 +21,14 @@ include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
             // Request tuples from data base and create checkbox for every user 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    //echo $row["id"] . ": " . $row["lastname"] . ", " . $row["firstname"] . "<br>";
-                    /* FUNKTIONIERT:  echo "<input type='checkbox' value='{$row['id']}'>" 
-                      . " " . $row['firstname'] . " "
-                      . $row['lastname'] . "<br>" ;
-
-                      ALTERNATIV:  echo '<form action="/php_includes/db_admin_show.inc.php" method="POST">
-                      <input type="checkbox" name="show[]" value=' . $row['id'] . '>'
-                      . " " . $row['firstname'] . " " . $row['lastname'] . '
-                      </form>';
-                     * 
-                     */
 
                     echo '<div>
             <input type="checkbox" name="cbox[]" value=' . $row['id'] . '>'
                     . " " . $row['firstname'] . " " . $row['lastname'] . '</div>';
                 }
             } else {
-                echo "0 results";
+                //if no check box is checked, print:
+                echo "No results";
             }
             ?> 
             <button class = "w3-black w3-button" type="submit" name="show">Show User Details</button>
@@ -76,9 +66,9 @@ include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
                         . '</div>';
                     }
 
-                    //mysqli_close($conn);
+                    mysqli_close($conn);
                 } else {
-                    echo "0 results";
+                    echo "No results";
                 }
                 ?> 
             </select>
@@ -115,7 +105,7 @@ include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
 
                     mysqli_close($conn);
                 } else {
-                    echo "0 Ergebnisse";
+                    echo "No results.";
                 }
                 ?> 
             </select>
@@ -123,6 +113,9 @@ include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
         </form>
         </p>
         <p>
+            <!-- Admin form for inserting a new user into the database.
+            The conditions for filling out the form are the same like 
+            for signing up as a new user -->
         <form action="/php_includes/db_admin_insert.inc.php" method="POST">
             <button class="w3-black w3-button" type="submit" name="insert">Insert New User</button>
         </form>

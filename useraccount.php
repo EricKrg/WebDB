@@ -48,6 +48,6 @@ include_once 'php_includes/db_connect.inc.php';
 </section>
 
 <?php
-//include_once 'footer.php';
+include_once 'footer.php';
 
 

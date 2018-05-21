@@ -1,4 +1,5 @@
 <?php
+// If the button for inserting new user data was submitted, create new fill out form
 if (!isset($_POST['button'])) {
     include_once 'db_connect.inc.php';
     ?>

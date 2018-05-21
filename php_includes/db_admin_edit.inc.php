@@ -1,6 +1,8 @@
 <?php
 include '../header_new.php';
 include_once 'db_connect.inc.php';
+// if the edit-user form was submitted, create another fill in form 
+// for updating user data. If not, stay on the admin index page
 if (!isset($_REQUEST['edit_users'])) {
     echo '<form action = "../adminaccount.php" method = "POST">' ?>
     <div class="w3-container w3-red"> NO results </div>
@@ -19,13 +21,13 @@ if (!isset($_REQUEST['edit_users'])) {
 // SQL query
     $sql_edit = "SELECT * FROM person WHERE id = $sql_id";
 
-// Query ausführen
+// applay query to database
     $result_edit = mysqli_query($conn, $sql_edit);
     if (!$result_edit) {
         exit("Query failed: " . mysqli_error($conn));
     }
 
-    // Anzahl der Ergebnis-Tupel abfragen und ablaufen
+    // collect resulting tuples and write it into the update form
     if (mysqli_num_rows($result_edit) > 0) {
         while ($row = mysqli_fetch_assoc($result_edit)) {
             echo "<p>User ID " . $row["id"] . ": " . "<br>"
@@ -71,7 +73,8 @@ if (!isset($_REQUEST['edit_users'])) {
 ?>
 
 
-
+<!-- create a new form containing the user data. The user id cannot be 
+edited but gets passed in order to use the data for new query-->
 
 <form class="signup-form" action="/php_includes/db_admin_edit_update.inc.php" method="POST">
     <input type="hidden" name="id_upd" value='<?php echo $edit_id; ?>'>        

@@ -26,9 +26,14 @@ if (isset($_POST['admin_edit_upd'])) {
         exit();
     } else {
 //check if characters of personal contact data are valid
-        if (!preg_match("/^[a-zA-Z]*$/", $first_edt) || !preg_match("/^[a-zA-Z]*$/", $last_edt) || !preg_match("/^[a-zA-Z]*$/", $street_edt) || !preg_match("/^[0-9]+$/", $hnr_edt) //
+        if (!preg_match("/^[a-zA-Z]*$/", $first_edt) 
+                || !preg_match("/^[a-zA-Z]*$/", $last_edt) 
+                || !preg_match("/^[a-zA-Z]*$/", $street_edt) 
+                || !preg_match("/^[0-9]+$/", $hnr_edt) //
                 || !preg_match("/^[0-9]+$/", $postcode_edt) //
-                || !preg_match("/^[a-zA-Z]*$/", $town_edt) || !preg_match("/^[a-zA-Z]*$/", $country_edt) || !preg_match("/^[0-9]+$/", $phone_edt)) {
+                || !preg_match("/^[a-zA-Z]*$/", $town_edt) 
+                || !preg_match("/^[a-zA-Z]*$/", $country_edt) 
+                || !preg_match("/^[0-9]+$/", $phone_edt)) {
             header("Location: ../adminaccount.php?userupdate=invalid");
             exit();
         } else {
@@ -39,9 +44,9 @@ if (isset($_POST['admin_edit_upd'])) {
             } else {
 // hashing the password
                 $hashedPwd_edt = password_hash($pwd_edt, PASSWORD_DEFAULT);
-//insert the user into the database
-// the common user status is 'user' and has to be changed
-// manually in the database to 'admin'. 
+/*insert the user into the database
+ the common user status is 'user' and has to be changed
+manually in the database to 'admin'*/
                 $sql_update_edt = "UPDATE person SET firstname = '$first_edt', "
                         . "lastname = '$last_edt', "
                         . "street = '$street_edt', "
@@ -55,14 +60,13 @@ if (isset($_POST['admin_edit_upd'])) {
                         . "password = '$hashedPwd_edt' "
                         . "WHERE id = '$id_edt'";
 
-//$result_update = mysqli_query($conn, $sql_update_edt);
                 if (mysqli_query($conn, $sql_update_edt)) {
                     echo "Record updated successfully";
                 } else {
                     echo "Error updating record: " . mysqli_error($conn);
                 }
 
-//session_destroy();
+// inform user via url if the update was successfull or not
 header("Location: ../adminaccount.php?update=success");
                 exit();
             }
