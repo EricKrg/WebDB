@@ -6,7 +6,12 @@ include_once '../jpgraph-4.2.0/src/jpgraph.php';
 include_once '../jpgraph-4.2.0/src/jpgraph_line.php';
 include_once '../jpgraph-4.2.0/src/jpgraph_plotline.php';
 include_once '../jpgraph-4.2.0/src/jpgraph_legend.inc.php';
-    //DB queries to extract values from db -------------------------------------
+
+$data = FALSE;
+
+if(!empty($_POST['visual_file'] != 'select')){ 
+    $data = TRUE;
+//DB queries to extract values from db -------------------------------------
     preg_match('([0-9]+)', $_POST['visual_file'], $match); //filter the time series id for query
     $data_id = $match;
     //climate data
@@ -90,4 +95,7 @@ include_once '../jpgraph-4.2.0/src/jpgraph_legend.inc.php';
 // Grafik anzeigen
     @unlink("mygraph2.png");
    $graph->Stroke("mygraph2.png");
+ } 
+
+ 
 ?>
