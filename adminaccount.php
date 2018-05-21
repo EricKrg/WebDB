@@ -66,7 +66,7 @@ include (dirname(__DIR__).'/htdocs/php_includes/db_connect.inc.php');
                         . '</div>';
                     }
 
-                    mysqli_close($conn);
+                    //mysqli_close($conn);
                 } else {
                     echo "No results";
                 }

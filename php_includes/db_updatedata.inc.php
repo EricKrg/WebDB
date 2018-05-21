@@ -54,7 +54,8 @@ if (isset($_POST['submit_upd'])) {
               } */ else {
                 // hashing the password
                 $hashedPwd_upd = password_hash($pwd_upd, PASSWORD_DEFAULT);
-                //update all user account attributes that have been changed by the user
+                //update all user account attributes that have been changed by the user 
+                // in the data base
                 $sql_update = "UPDATE person SET firstname = '$first_upd', "
                         . "lastname = '$last_upd', "
                         //. "login = '$ulog_upd' "
