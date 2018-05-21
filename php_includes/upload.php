@@ -110,10 +110,10 @@ include_once '../header_new.php';
                         'yearE','yearC','rarea','statd','respp'); //all meta variables, listed in array to iterate through them
                     $i = 0;
                     foreach ($var as $value){
-                        if ($_POST[$value] == ''){
+                        if (mysqli_real_escape_string($conn, $_POST[$value]) == ''){
                             $txt = $value.": "."NA"."\n"; //if meta data values is empty fill with NA
                         } else {
-                    $txt = $value.": ".$_POST[$value]."\n";
+                    $txt = $value.": ". mysqli_real_escape_string($conn, $_POST[$value]) ."\n";
                         }
                     $meta[] = substr($txt,6);
                     fwrite($meta_file, $txt); //write meta txt file, in case of db problems - the meta data of ech time series is available as txt
